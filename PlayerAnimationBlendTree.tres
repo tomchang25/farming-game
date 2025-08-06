@@ -1,0 +1,13 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=3 format=3 uid="uid://bstwkmjwuocvd"]
+
+[ext_resource type="AnimationNodeStateMachine" uid="uid://m5ywymxbti3i" path="res://PlayerAnimationStateMachine.tres" id="1_yucxp"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_iyjaf"]
+
+[resource]
+graph_offset = Vector2(-714.875, -255.136)
+nodes/AnimationNodeStateMachine/node = ExtResource("1_yucxp")
+nodes/AnimationNodeStateMachine/position = Vector2(-580, -100)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_iyjaf")
+nodes/TimeScale/position = Vector2(-100, 80)
+node_connections = [&"TimeScale", 0, &"AnimationNodeStateMachine", &"output", 0, &"TimeScale"]

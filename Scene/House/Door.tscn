@@ -1,0 +1,111 @@
+[gd_scene load_steps=11 format=3 uid="uid://cv6no0xnuvw1u"]
+
+[ext_resource type="Script" uid="uid://c0rc07op17va7" path="res://Script/Scene/House/Door.cs" id="1_ha150"]
+[ext_resource type="Texture2D" uid="uid://b6uft5ef1jiyf" path="res://Asset/Sprout Lands - Sprites - Basic pack/Tilesets/Doors.png" id="1_ytai5"]
+[ext_resource type="PackedScene" uid="uid://mlg4uc0pnb1s" path="res://Scene/Component/InteractableComponent.tscn" id="2_6vaym"]
+
+[sub_resource type="Animation" id="Animation_j8xu2"]
+resource_name = "CloseDoor"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 3, 1]
+}
+
+[sub_resource type="Animation" id="Animation_ha150"]
+resource_name = "Default"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_2rh14"]
+resource_name = "OpenDoor"
+length = 0.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 3, 2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_vkhph"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2rh14"]
+_data = {
+&"CloseDoor": SubResource("Animation_j8xu2"),
+&"Default": SubResource("Animation_ha150"),
+&"OpenDoor": SubResource("Animation_2rh14"),
+&"RESET": SubResource("Animation_vkhph")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytai5"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ha150"]
+size = Vector2(12, 30)
+
+[node name="Door" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_ha150")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2rh14")
+}
+autoplay = "Default"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ytai5")
+vframes = 4
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ytai5")
+
+[node name="InteractableComponent" parent="." instance=ExtResource("2_6vaym")]
+position = Vector2(0, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_ha150")
+debug_color = Color(0.738103, 0.221948, 1, 0.42)
