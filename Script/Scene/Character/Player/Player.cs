@@ -20,12 +20,18 @@ public partial class Player : CharacterBody2D
     private const float PLAYER_RUN_SPEED = 200;
 
 
+    private HitComponent hitComponent;
+
     public override void _Ready()
     {
         this.animationTree = this.GetNode<AnimationTree>("AnimationTree");
         this.animationStateMachinePlayback = (AnimationNodeStateMachinePlayback)this.animationTree.Get("parameters/AnimationNodeStateMachine/playback");
 
+        this.hitComponent = this.GetNode<HitComponent>("HitComponent");
+        this.hitComponent.Connect("Hit", new Callable(this, nameof(OnHit)));
+
         SignalManager.Instance.Connect("ToolSelected", new Callable(this, nameof(OnToolSelected)));
+        SignalManager.Instance.Connect("ToolDeselected", new Callable(this, nameof(OnToolDeselected)));
     }
 
     public override void _Process(double delta)
@@ -106,5 +112,41 @@ public partial class Player : CharacterBody2D
     public void OnToolSelected(DataType.ToolType toolType)
     {
         this.CurrentTool = toolType;
+    }
+
+    public void OnHit(HurtComponent hurtComponent)
+    {
+        DataType.DamageType damageType;
+        switch (this.CurrentTool)
+        {
+            case DataType.ToolType.Axe:
+                damageType = DataType.DamageType.AxeChopping;
+                break;
+            case DataType.ToolType.Hoe:
+                damageType = DataType.DamageType.HoeTilling;
+                break;
+            case DataType.ToolType.WateringCan:
+                damageType = DataType.DamageType.Watering;
+                break;
+            case DataType.ToolType.PlantTomatoSeed:
+                return;
+            case DataType.ToolType.PlantCornSeed:
+                return;
+            case DataType.ToolType.None:
+                return;
+            default:
+                return;
+        }
+
+        hurtComponent.OnHurt(new DamageStat
+        {
+            DamageAmount = 1,
+            DamageType = damageType
+        });
+    }
+
+    public void OnToolDeselected()
+    {
+        this.CurrentTool = DataType.ToolType.None;
     }
 }

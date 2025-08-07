@@ -22,6 +22,10 @@ public partial class ToolPanel : PanelContainer
         this.ToolWateringCanButton.Connect("pressed", new Callable(this, nameof(OnToolWateringCanButtonPressed)));
         this.ToolCornSeedButton.Connect("pressed", new Callable(this, nameof(OnToolCornSeedButtonPressed)));
         this.ToolTomatoSeedButton.Connect("pressed", new Callable(this, nameof(OnToolTomatoSeedButtonPressed)));
+
+        this.ToolAxeButton.GrabFocus();
+
+        SignalManager.Instance.Connect("ToolDeselected", new Callable(this, nameof(OnToolDeselected)));
     }
 
     private void OnToolAxeButtonPressed()
@@ -47,5 +51,14 @@ public partial class ToolPanel : PanelContainer
     private void OnToolTomatoSeedButtonPressed()
     {
         SignalManager.Instance.EmitSignal("ToolSelected", (int)DataType.ToolType.PlantTomatoSeed);
+    }
+
+    private void OnToolDeselected()
+    {
+        this.ToolAxeButton.ReleaseFocus();
+        this.ToolHoeButton.ReleaseFocus();
+        this.ToolWateringCanButton.ReleaseFocus();
+        this.ToolCornSeedButton.ReleaseFocus();
+        this.ToolTomatoSeedButton.ReleaseFocus();
     }
 }

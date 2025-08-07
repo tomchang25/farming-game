@@ -3,8 +3,8 @@ using System;
 
 public partial class HitComponent : Area2D
 {
-    [Export]
-    public DamageStat Damage { get; set; }
+    [Signal]
+    public delegate void HitEventHandler(HurtComponent hurtComponent);
     public override void _Ready()
     {
         base._Ready();
@@ -15,7 +15,7 @@ public partial class HitComponent : Area2D
     {
         if (area is HurtComponent hurtComponent)
         {
-            hurtComponent.OnHurt(this.Damage);
+            this.EmitSignal("Hit", hurtComponent);
         }
     }
 }

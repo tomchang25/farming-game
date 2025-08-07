@@ -3,6 +3,7 @@ using System;
 
 public partial class InputManager : Node
 {
+    public static bool IsMouseOverUI { get; private set; }
 
     public static Vector2 MovementInput()
     {
@@ -21,6 +22,24 @@ public partial class InputManager : Node
 
     public static bool IsUseTool()
     {
-        return Input.IsActionPressed("Hit");
+
+        return Input.IsActionPressed("Hit") && !IsMouseOverUI;
+
+    }
+
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        base._UnhandledInput(@event);
+        if (@event is InputEventMouseButton button && button.ButtonIndex == MouseButton.Right)
+        {
+            SignalManager.Instance.EmitSignal("ToolDeselected");
+            return;
+        }
+        if (@event is InputEventMouseMotion or InputEventMouseButton)
+        {
+            IsMouseOverUI = this.GetViewport().GuiGetHoveredControl() != null;
+            GD.Print(this.GetViewport().GuiGetHoveredControl());
+        }
+
     }
 }

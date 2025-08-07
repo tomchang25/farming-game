@@ -39,6 +39,7 @@ region = Rect2(0, 16, 16, 16)
 [node name="ToolPanel" type="PanelContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 1
 theme = ExtResource("1_411ji")
 theme_type_variation = &"DarkWoodPanel"
 script = ExtResource("2_sdr3s")

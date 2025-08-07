@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cm2n6tewvk4gw"]
+[gd_scene load_steps=37 format=3 uid="uid://cm2n6tewvk4gw"]
 
 [ext_resource type="Texture2D" uid="uid://ctrj6630chqko" path="res://Asset/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="1_cn61s"]
 [ext_resource type="Script" uid="uid://b3qjb5jd4drjo" path="res://Script/Scene/Character/Player/Player.cs" id="1_xm51f"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://fhco4nupbyea" path="res://Component/HitComponent.tscn" id="5_g2j1f"]
 [ext_resource type="Script" uid="uid://ctrkxpm7xtgwv" path="res://Script/Scene/Character/Player/PlayerState/IdlePlayerState.cs" id="5_v8ikc"]
 [ext_resource type="Script" uid="uid://bjr0wrlnk6agg" path="res://Script/Scene/Character/Player/PlayerState/WalkPlayerState.cs" id="6_g56pk"]
-[ext_resource type="Script" uid="uid://d3oeh8b615ks6" path="res://Script/Resource/DamageStat.cs" id="6_iyjaf"]
 [ext_resource type="Script" uid="uid://cdj2pjdjdfuit" path="res://Script/Scene/Character/Player/PlayerState/RunPlayerState.cs" id="8_25dyg"]
 [ext_resource type="Script" uid="uid://duhg1fq74wph" path="res://Script/Scene/Character/Player/PlayerState/ChoppingPlayerState.cs" id="9_gvcj0"]
 [ext_resource type="Script" uid="uid://clhx5vl8ur6pq" path="res://Script/Scene/Character/Player/PlayerState/TillingPlayerState.cs" id="10_uja76"]
@@ -1358,12 +1357,6 @@ _data = {
 radius = 1.0
 height = 8.0
 
-[sub_resource type="Resource" id="Resource_u8g8f"]
-script = ExtResource("6_iyjaf")
-DamageAmount = 1.0
-DamageType = 1
-metadata/_custom_type_script = "uid://d3oeh8b615ks6"
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2j1f"]
 radius = 5.0
 
@@ -1402,7 +1395,6 @@ shape = SubResource("CapsuleShape2D_fwnog")
 [node name="HitComponent" parent="." instance=ExtResource("5_g2j1f")]
 collision_layer = 8
 collision_mask = 64
-Damage = SubResource("Resource_u8g8f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
 shape = SubResource("CircleShape2D_g2j1f")
