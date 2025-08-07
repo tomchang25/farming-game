@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://wjd2bhyvpb1v"]
+
+[ext_resource type="PackedScene" uid="uid://be5tqtdf0itk0" path="res://Scene/Object/Destructible/DestructibleEntity.tscn" id="1_bgsxl"]
+[ext_resource type="Resource" uid="uid://civgnu0thplq4" path="res://Resource/DestructibleStat/BigTreeStat.tres" id="2_cet1u"]
+[ext_resource type="Texture2D" uid="uid://8k0yuyh3e1t6" path="res://Asset/Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="2_hn2e5"]
+[ext_resource type="PackedScene" uid="uid://dr6jr2jwaiej0" path="res://Scene/Component/ShakeComponent.tscn" id="3_jyprg"]
+[ext_resource type="Shader" uid="uid://1j6jvr1oxy1g" path="res://Shader/Shake.gdshader" id="4_81li7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ame0"]
+resource_local_to_scene = true
+shader = ExtResource("4_81li7")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cet1u"]
+radius = 3.0
+height = 12.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vx78r"]
+radius = 12.0
+height = 34.0
+
+[node name="BigTree" instance=ExtResource("1_bgsxl")]
+DestructibleStat = ExtResource("2_cet1u")
+
+[node name="ShakeComponent" parent="." index="0" node_paths=PackedStringArray("ShakeNode") instance=ExtResource("3_jyprg")]
+ShakeNode = NodePath("../Sprite2D")
+
+[node name="Sprite2D" parent="." index="1"]
+material = SubResource("ShaderMaterial_5ame0")
+position = Vector2(0, -12)
+texture = ExtResource("2_hn2e5")
+region_enabled = true
+region_rect = Rect2(16, 0, 32, 32)
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CapsuleShape2D_cet1u")
+
+[node name="HurtComponent" parent="." index="4"]
+position = Vector2(0, -11)
+
+[node name="CollisionShape2D" parent="HurtComponent" index="0"]
+shape = SubResource("CapsuleShape2D_vx78r")

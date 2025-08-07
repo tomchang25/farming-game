@@ -12,4 +12,15 @@ public partial class DestructibleStat : Resource
 
     [Export]
     public PackedScene SpawnScene { get; set; }
+
+    [Export]
+    public bool IsShakable { get; set; }
+
+    [Export]
+    public float ShakeIntensity { get; set; }
+
+    [Export]
+    public float ShakeDuration { get; set; }
+
 }
+

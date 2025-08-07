@@ -12,7 +12,7 @@ public partial class HurtComponent : Area2D
     {
         if (damage.DamageType == this.AllowedDamageType)
         {
-            this.EmitSignal("Hurt", damage.DamageAmount);
+            this.EmitSignal("Hurt", damage);
         }
     }
 }

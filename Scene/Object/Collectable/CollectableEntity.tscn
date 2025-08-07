@@ -1,20 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvk3vi50mhpe3"]
+[gd_scene load_steps=2 format=3 uid="uid://bvk3vi50mhpe3"]
 
-[ext_resource type="Texture2D" uid="uid://8k0yuyh3e1t6" path="res://Asset/Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="1_rugec"]
 [ext_resource type="PackedScene" uid="uid://dmg6x6ad3hw0j" path="res://Scene/Component/CollectableComponent.tscn" id="2_ym2gn"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fql8o"]
-radius = 8.24621
-
-[node name="Log" type="Node2D"]
+[node name="CollectableEntity" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_rugec")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="CollectableComponent" parent="." instance=ExtResource("2_ym2gn")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
-shape = SubResource("CircleShape2D_fql8o")
 debug_color = Color(0.976471, 0, 0.415686, 0)

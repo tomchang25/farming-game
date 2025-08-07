@@ -6,13 +6,13 @@
 [ext_resource type="AnimationNodeBlendTree" uid="uid://bstwkmjwuocvd" path="res://PlayerAnimationBlendTree.tres" id="4_hx51x"]
 [ext_resource type="Script" uid="uid://dpp8ivcpb6k6r" path="res://Script/StateMachine/NodeStateMachine.cs" id="4_v8ikc"]
 [ext_resource type="PackedScene" uid="uid://fhco4nupbyea" path="res://Scene/Component/HitComponent.tscn" id="5_g2j1f"]
-[ext_resource type="Script" uid="uid://ctrkxpm7xtgwv" path="res://Script/Scene/Character/Player/IdlePlayerState.cs" id="5_v8ikc"]
-[ext_resource type="Script" uid="uid://bjr0wrlnk6agg" path="res://Script/Scene/Character/Player/WalkPlayerState.cs" id="6_g56pk"]
+[ext_resource type="Script" uid="uid://ctrkxpm7xtgwv" path="res://Script/Scene/Character/Player/PlayerState/IdlePlayerState.cs" id="5_v8ikc"]
+[ext_resource type="Script" uid="uid://bjr0wrlnk6agg" path="res://Script/Scene/Character/Player/PlayerState/WalkPlayerState.cs" id="6_g56pk"]
 [ext_resource type="Script" uid="uid://d3oeh8b615ks6" path="res://Script/Resource/DamageStat.cs" id="6_iyjaf"]
-[ext_resource type="Script" uid="uid://cdj2pjdjdfuit" path="res://Script/Scene/Character/Player/RunPlayerState.cs" id="8_25dyg"]
-[ext_resource type="Script" uid="uid://duhg1fq74wph" path="res://Script/Scene/Character/Player/ChoppingPlayerState.cs" id="9_gvcj0"]
-[ext_resource type="Script" uid="uid://clhx5vl8ur6pq" path="res://Script/Scene/Character/Player/TillingPlayerState.cs" id="10_uja76"]
-[ext_resource type="Script" uid="uid://wrwh2vdjb6b5" path="res://Script/Scene/Character/Player/WateringPlayerState.cs" id="11_k7381"]
+[ext_resource type="Script" uid="uid://cdj2pjdjdfuit" path="res://Script/Scene/Character/Player/PlayerState/RunPlayerState.cs" id="8_25dyg"]
+[ext_resource type="Script" uid="uid://duhg1fq74wph" path="res://Script/Scene/Character/Player/PlayerState/ChoppingPlayerState.cs" id="9_gvcj0"]
+[ext_resource type="Script" uid="uid://clhx5vl8ur6pq" path="res://Script/Scene/Character/Player/PlayerState/TillingPlayerState.cs" id="10_uja76"]
+[ext_resource type="Script" uid="uid://wrwh2vdjb6b5" path="res://Script/Scene/Character/Player/PlayerState/WateringPlayerState.cs" id="11_k7381"]
 
 [sub_resource type="Animation" id="Animation_se71t"]
 resource_name = "ChoppingDown"
@@ -1304,7 +1304,7 @@ shape = SubResource("CapsuleShape2D_fwnog")
 
 [node name="HitComponent" parent="." instance=ExtResource("5_g2j1f")]
 collision_layer = 8
-collision_mask = 16
+collision_mask = 64
 Damage = SubResource("Resource_u8g8f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]

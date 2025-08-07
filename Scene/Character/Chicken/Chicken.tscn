@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvogv2eky0dn8"]
+
+[ext_resource type="Script" uid="uid://tkvn134feopn" path="res://Script/Scene/Character/Chicken/Chicken.cs" id="1_lm7xg"]
+
+[node name="Chicken" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_lm7xg")

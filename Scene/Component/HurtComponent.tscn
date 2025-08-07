@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://pm6kjns73pti"]
 
-[ext_resource type="Script" uid="uid://6r4ndfpcj0yo" path="res://Script/Scene/Component/HurtComponent.cs" id="1_5ido6"]
+[ext_resource type="Script" uid="uid://6r4ndfpcj0yo" path="res://Script/Component/HurtComponent.cs" id="1_5ido6"]
 
 [node name="HurtComponent" type="Area2D"]
 collision_layer = 0
