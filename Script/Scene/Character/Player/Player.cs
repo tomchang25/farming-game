@@ -24,6 +24,8 @@ public partial class Player : CharacterBody2D
     {
         this.animationTree = this.GetNode<AnimationTree>("AnimationTree");
         this.animationStateMachinePlayback = (AnimationNodeStateMachinePlayback)this.animationTree.Get("parameters/AnimationNodeStateMachine/playback");
+
+        SignalManager.Instance.Connect("ToolSelected", new Callable(this, nameof(OnToolSelected)));
     }
 
     public override void _Process(double delta)
@@ -100,4 +102,9 @@ public partial class Player : CharacterBody2D
         }
     }
 
+
+    public void OnToolSelected(DataType.ToolType toolType)
+    {
+        this.CurrentTool = toolType;
+    }
 }

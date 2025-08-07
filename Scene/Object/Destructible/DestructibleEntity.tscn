@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://be5tqtdf0itk0"]
 
 [ext_resource type="Script" uid="uid://drshhs8hk82fy" path="res://Script/Component/DestructibleComponent.cs" id="1_o4nk5"]
-[ext_resource type="PackedScene" uid="uid://dsaiubf4es2tx" path="res://Scene/Component/HealthComponent.tscn" id="2_3yaxc"]
-[ext_resource type="PackedScene" uid="uid://pm6kjns73pti" path="res://Scene/Component/HurtComponent.tscn" id="3_cj8xm"]
+[ext_resource type="PackedScene" uid="uid://dsaiubf4es2tx" path="res://Component/HealthComponent.tscn" id="2_3yaxc"]
+[ext_resource type="PackedScene" uid="uid://pm6kjns73pti" path="res://Component/HurtComponent.tscn" id="3_cj8xm"]
 
 [node name="DestructibleEntity" type="StaticBody2D"]
 script = ExtResource("1_o4nk5")

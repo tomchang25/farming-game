@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://8k0yuyh3e1t6" path="res://Asset/Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="2_3hv3n"]
 [ext_resource type="Resource" uid="uid://cnu8bvhfqwywk" path="res://Resource/DestructibleStat/SmallTreeStat.tres" id="2_6nhm5"]
 [ext_resource type="Shader" uid="uid://1j6jvr1oxy1g" path="res://Shader/Shake.gdshader" id="2_ujrco"]
-[ext_resource type="PackedScene" uid="uid://dr6jr2jwaiej0" path="res://Scene/Component/ShakeComponent.tscn" id="3_3hv3n"]
+[ext_resource type="PackedScene" uid="uid://dr6jr2jwaiej0" path="res://Component/ShakeComponent.tscn" id="3_3hv3n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4r3ay"]
 resource_local_to_scene = true
@@ -26,9 +26,10 @@ DestructibleStat = ExtResource("2_6nhm5")
 ShakeNode = NodePath("../Sprite2D")
 
 [node name="Sprite2D" parent="." index="1"]
+y_sort_enabled = true
 material = SubResource("ShaderMaterial_4r3ay")
-position = Vector2(0, -9)
 texture = ExtResource("2_3hv3n")
+offset = Vector2(0, -9)
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 32)
 

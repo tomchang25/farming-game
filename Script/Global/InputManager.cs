@@ -3,6 +3,7 @@ using System;
 
 public partial class InputManager : Node
 {
+
     public static Vector2 MovementInput()
     {
         return Input.GetVector("Left", "Right", "Up", "Down");

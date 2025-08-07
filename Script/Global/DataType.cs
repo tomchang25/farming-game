@@ -9,8 +9,8 @@ public static class DataType
         Axe,
         Hoe,
         WateringCan,
-        PlantCorn,
-        PlantTomato
+        PlantCornSeed,
+        PlantTomatoSeed
     }
 
     public enum DamageType

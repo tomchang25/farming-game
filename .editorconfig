@@ -21,6 +21,11 @@ dotnet_diagnostic.IDE0031.severity = none
 # Specify no preference over whether private fields are marked readonly
 dotnet_style_readonly_field = false:warning
 
+# CA1822: Mark members as static
+dotnet_diagnostic.CA1822.severity = none
+
+# Remove unnecessary expression value (IDE0058)
+dotnet_diagnostic.IDE0058.severity = none
 
 # Expression-bodied members
 csharp_style_expression_bodied_methods = false:warning
@@ -210,7 +215,7 @@ dotnet_remove_unnecessary_suppression_exclusions = none:warning
 # C# Unnecessary code rules
 [*.{cs,csx,cake}]
 csharp_style_unused_value_expression_statement_preference = discard_variable:suggestion
-dotnet_diagnostic.IDE0058.severity = suggestion
+# dotnet_diagnostic.IDE0058.severity = suggestion
 csharp_style_unused_value_assignment_preference = discard_variable:suggestion
 dotnet_diagnostic.IDE0059.severity = suggestion
 

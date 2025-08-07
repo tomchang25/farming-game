@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b54560y2r1pb7" path="res://Asset/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Actions.png" id="2_fwnog"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://bstwkmjwuocvd" path="res://PlayerAnimationBlendTree.tres" id="4_hx51x"]
 [ext_resource type="Script" uid="uid://dpp8ivcpb6k6r" path="res://Script/StateMachine/NodeStateMachine.cs" id="4_v8ikc"]
-[ext_resource type="PackedScene" uid="uid://fhco4nupbyea" path="res://Scene/Component/HitComponent.tscn" id="5_g2j1f"]
+[ext_resource type="PackedScene" uid="uid://fhco4nupbyea" path="res://Component/HitComponent.tscn" id="5_g2j1f"]
 [ext_resource type="Script" uid="uid://ctrkxpm7xtgwv" path="res://Script/Scene/Character/Player/PlayerState/IdlePlayerState.cs" id="5_v8ikc"]
 [ext_resource type="Script" uid="uid://bjr0wrlnk6agg" path="res://Script/Scene/Character/Player/PlayerState/WalkPlayerState.cs" id="6_g56pk"]
 [ext_resource type="Script" uid="uid://d3oeh8b615ks6" path="res://Script/Resource/DamageStat.cs" id="6_iyjaf"]
@@ -868,6 +868,30 @@ tracks/3/keys = {
 "update": 1,
 "values": [Vector2i(0, 0), Vector2i(1, 0)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitComponent:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HitComponent/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_ym2ik"]
 resource_name = "TillingLeft"
@@ -919,6 +943,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Vector2i(0, 2), Vector2i(1, 2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitComponent:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-10, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HitComponent/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_om2wy"]
@@ -972,6 +1020,30 @@ tracks/3/keys = {
 "update": 1,
 "values": [Vector2i(0, 3), Vector2i(1, 3)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitComponent:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HitComponent/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_xfglc"]
 resource_name = "TillingUp"
@@ -1023,6 +1095,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Vector2i(0, 1), Vector2i(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitComponent:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -15)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HitComponent/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_sxbgk"]
@@ -1272,14 +1368,15 @@ metadata/_custom_type_script = "uid://d3oeh8b615ks6"
 radius = 5.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_xm51f")
 CurrentTool = 1
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
-position = Vector2(0, -7)
 texture = ExtResource("1_cn61s")
+offset = Vector2(0, -6)
 hframes = 4
 vframes = 4
 

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_tbox5")
 HealthAcount = 5
-AllowedDamageType = 1
+AllowedDamageType = 2
 SpawnScene = ExtResource("1_y8761")
 IsShakable = true
 ShakeIntensity = 0.4

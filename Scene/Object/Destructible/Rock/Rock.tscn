@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://be5tqtdf0itk0" path="res://Scene/Object/Destructible/DestructibleEntity.tscn" id="1_e1bai"]
 [ext_resource type="Resource" uid="uid://b2epf5iph2qlx" path="res://Resource/DestructibleStat/RockStat.tres" id="2_do2r2"]
-[ext_resource type="PackedScene" uid="uid://dr6jr2jwaiej0" path="res://Scene/Component/ShakeComponent.tscn" id="3_do2r2"]
+[ext_resource type="PackedScene" uid="uid://dr6jr2jwaiej0" path="res://Component/ShakeComponent.tscn" id="3_do2r2"]
 [ext_resource type="Texture2D" uid="uid://8k0yuyh3e1t6" path="res://Asset/Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="3_t71v2"]
 [ext_resource type="Shader" uid="uid://1j6jvr1oxy1g" path="res://Shader/Shake.gdshader" id="4_t71v2"]
 
@@ -20,6 +20,7 @@ height = 10.0
 radius = 7.0
 
 [node name="Rock" instance=ExtResource("1_e1bai")]
+y_sort_enabled = true
 DestructibleStat = ExtResource("2_do2r2")
 
 [node name="ShakeComponent" parent="." index="0" node_paths=PackedStringArray("ShakeNode") instance=ExtResource("3_do2r2")]
@@ -27,8 +28,8 @@ ShakeNode = NodePath("../Sprite2D")
 
 [node name="Sprite2D" parent="." index="1"]
 material = SubResource("ShaderMaterial_s6rtv")
-position = Vector2(0, -3)
 texture = ExtResource("3_t71v2")
+offset = Vector2(0, -2)
 region_enabled = true
 region_rect = Rect2(128, 16, 16, 16)
 
