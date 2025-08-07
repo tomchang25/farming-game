@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://be5tqtdf0itk0"]
+
+[ext_resource type="Script" uid="uid://drshhs8hk82fy" path="res://Script/Scene/Component/DestructibleComponent.cs" id="1_ujrco"]
+[ext_resource type="Texture2D" uid="uid://8k0yuyh3e1t6" path="res://Asset/Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="2_3hv3n"]
+[ext_resource type="Resource" uid="uid://cnu8bvhfqwywk" path="res://Resource/DestructibleStat/SmallTree.tres" id="2_6nhm5"]
+[ext_resource type="PackedScene" uid="uid://dsaiubf4es2tx" path="res://Scene/Component/HealthComponent.tscn" id="3_6nhm5"]
+[ext_resource type="PackedScene" uid="uid://pm6kjns73pti" path="res://Scene/Component/HurtComponent.tscn" id="4_4r3ay"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ekguu"]
+radius = 2.0
+height = 8.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wq6yh"]
+radius = 7.0
+
+[node name="SmallTree" type="StaticBody2D"]
+script = ExtResource("1_ujrco")
+DestructibleStat = ExtResource("2_6nhm5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+texture = ExtResource("2_3hv3n")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ekguu")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_6nhm5")]
+
+[node name="HurtComponent" parent="." instance=ExtResource("4_4r3ay")]
+position = Vector2(0, -12)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+shape = SubResource("CapsuleShape2D_wq6yh")
+debug_color = Color(0.821195, 0.401403, 7.70092e-07, 0.141176)

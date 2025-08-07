@@ -12,4 +12,12 @@ public static class DataType
         PlantCorn,
         PlantTomato
     }
+
+    public enum DamageType
+    {
+        None,
+        AxeChopping,
+        HoeTilling,
+        Watering
+    }
 }

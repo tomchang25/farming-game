@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DestructibleStat" load_steps=3 format=3 uid="uid://cnu8bvhfqwywk"]
+
+[ext_resource type="Script" uid="uid://c4wo6c21lpg6x" path="res://Script/Resource/DestructibleStat.cs" id="1_mti7e"]
+[ext_resource type="PackedScene" uid="uid://bvk3vi50mhpe3" path="res://Scene/Object/Collectable/Log.tscn" id="1_uqg7s"]
+
+[resource]
+script = ExtResource("1_mti7e")
+HealthAcount = 3
+AllowedDamageType = 1
+SpawnScene = ExtResource("1_uqg7s")
+metadata/_custom_type_script = "uid://c4wo6c21lpg6x"

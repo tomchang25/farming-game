@@ -77,7 +77,7 @@ public partial class NodeStateMachine : Node
             return;
         }
 
-        GD.Print("Transitioning from " + this.currentNodeState.Name + " to " + nextNodeState.Name);
+        // GD.Print("Transitioning from " + this.currentNodeState.Name + " to " + nextNodeState.Name);
 
         this.currentNodeState.OnExit();
         nextNodeState.OnEnter();
