@@ -1,0 +1,169 @@
+[gd_scene load_steps=5 format=3 uid="uid://ug2m0t2jj6m7"]
+
+[ext_resource type="Theme" uid="uid://bfa4utwuhlxue" path="res://Resource/Theme/GameUITheme.tres" id="1_hvnvl"]
+[ext_resource type="Script" uid="uid://y1wbnfwcy5d7" path="res://Script/Scene/UI/DayAndNightPanel.cs" id="2_hqud6"]
+[ext_resource type="Texture2D" uid="uid://ccmchtaopai5u" path="res://Asset/UI/Sprite sheet for Basic Pack.png" id="2_oevfs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqud6"]
+atlas = ExtResource("2_oevfs")
+region = Rect2(421, 34, 7, 12)
+
+[node name="DayAndNightPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+theme = ExtResource("1_hvnvl")
+script = ExtResource("2_hqud6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = -75.0
+offset_right = -1.0
+offset_bottom = 80.0
+theme_override_constants/separation = 2
+
+[node name="DayPanel" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"DayAndNightCounterPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/DayPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="DayLabel" type="Label" parent="VBoxContainer/DayPanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"DayAndNightLabel"
+text = "Day 01"
+
+[node name="TimePanel" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"DayAndNightCounterPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TimePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="TimeLabel" type="Label" parent="VBoxContainer/TimePanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"DayAndNightLabel"
+text = "00:00"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="NormalSpeedButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 1
+theme_type_variation = &"DayAndNightButton"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/NormalSpeedButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -6.0
+offset_right = 4.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_hqud6")
+
+[node name="FastSpeedButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 20)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"DayAndNightButton"
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/FastSpeedButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_hqud6")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/FastSpeedButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -6.0
+offset_right = 2.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_hqud6")
+
+[node name="SuperFastSpeedButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"DayAndNightButton"
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/SuperFastSpeedButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -6.0
+offset_right = 8.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_hqud6")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/SuperFastSpeedButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -6.0
+offset_right = 4.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_hqud6")
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer/SuperFastSpeedButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.0
+offset_top = -6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_hqud6")

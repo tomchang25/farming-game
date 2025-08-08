@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 InputManager="*res://Script/Global/InputManager.cs"
 SignalManager="*res://Script/Global/SignalManager.cs"
+DayAndNightCycleManager="*res://Script/Global/DayAndNightCycleManager.cs"
 
 [display]
 
