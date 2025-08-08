@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://c57mo8kl3dq4q"]
+
+[ext_resource type="PackedScene" uid="uid://bvk3vi50mhpe3" path="res://Scene/Object/Collectable/CollectableEntity.tscn" id="1_86oq2"]
+[ext_resource type="Texture2D" uid="uid://tl1gvdek1vgc" path="res://Asset/Sprout Lands - Sprites - Basic pack/Objects/Basic_Plants.png" id="2_7q3pc"]
+[ext_resource type="Resource" uid="uid://k4qckvtutbwy" path="res://Resource/CollectableStat/CornHarvestStat.tres" id="3_86oq2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_86oq2"]
+
+[node name="CornHarvest" instance=ExtResource("1_86oq2")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_7q3pc")
+region_enabled = true
+region_rect = Rect2(80, 0, 16, 16)
+
+[node name="CollectableComponent" parent="." index="1"]
+collectableStat = ExtResource("3_86oq2")
+
+[node name="CollisionShape2D" parent="CollectableComponent" index="0"]
+shape = SubResource("CircleShape2D_86oq2")

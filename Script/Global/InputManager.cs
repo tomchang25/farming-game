@@ -38,7 +38,7 @@ public partial class InputManager : Node
         if (@event is InputEventMouseMotion or InputEventMouseButton)
         {
             IsMouseOverUI = this.GetViewport().GuiGetHoveredControl() != null;
-            GD.Print(this.GetViewport().GuiGetHoveredControl());
+            // GD.Print(this.GetViewport().GuiGetHoveredControl());
         }
 
     }

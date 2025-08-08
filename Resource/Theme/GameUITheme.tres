@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=18 format=3 uid="uid://bfa4utwuhlxue"]
+[gd_resource type="Theme" load_steps=21 format=3 uid="uid://bfa4utwuhlxue"]
 
 [ext_resource type="Texture2D" uid="uid://ccmchtaopai5u" path="res://Asset/UI/Sprite sheet for Basic Pack.png" id="1_lq141"]
+[ext_resource type="FontVariation" uid="uid://b0wa6uvbgk41m" path="res://Resource/Font/ZXPalmVariation.tres" id="2_taxei"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_taxei"]
 atlas = ExtResource("1_lq141")
@@ -13,6 +14,17 @@ texture_margin_top = 7.0
 texture_margin_right = 7.0
 texture_margin_bottom = 7.0
 region_rect = Rect2(0, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y165k"]
+atlas = ExtResource("1_lq141")
+region = Rect2(107, 59, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_248vr"]
+texture = SubResource("AtlasTexture_y165k")
+texture_margin_left = 4.0
+texture_margin_top = 3.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4g21s"]
 load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-3ab3c5c5417c76af319602b38b5759f5.ctex"
@@ -89,6 +101,11 @@ region_rect = Rect2(0, 0, 26, 28)
 [resource]
 DarkWoodPanel/base_type = &"PanelContainer"
 DarkWoodPanel/styles/panel = SubResource("StyleBoxTexture_8uych")
+InventoryItemPanel/base_type = &"PanelContainer"
+InventoryItemPanel/styles/panel = SubResource("StyleBoxTexture_248vr")
+InventoryLabel/base_type = &"Label"
+InventoryLabel/font_sizes/font_size = 8
+InventoryLabel/fonts/font = ExtResource("2_taxei")
 MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 10
 MarginContainer/constants/margin_right = 10

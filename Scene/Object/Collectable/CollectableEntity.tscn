@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://dmg6x6ad3hw0j" path="res://Component/CollectableComponent.tscn" id="2_ym2gn"]
 
 [node name="CollectableEntity" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)
 
 [node name="CollectableComponent" parent="." instance=ExtResource("2_ym2gn")]

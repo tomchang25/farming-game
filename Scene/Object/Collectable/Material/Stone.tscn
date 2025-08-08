@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccoy1mp00ir47"]
+[gd_scene load_steps=5 format=3 uid="uid://ccoy1mp00ir47"]
 
 [ext_resource type="PackedScene" uid="uid://bvk3vi50mhpe3" path="res://Scene/Object/Collectable/CollectableEntity.tscn" id="1_8b1dy"]
 [ext_resource type="Texture2D" uid="uid://8k0yuyh3e1t6" path="res://Asset/Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="2_uyeu4"]
+[ext_resource type="Resource" uid="uid://bwcoxd5hxyxhq" path="res://Resource/CollectableStat/StoneStat.tres" id="3_uyeu4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8b1dy"]
 radius = 6.0
@@ -10,7 +11,11 @@ radius = 6.0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_uyeu4")
+region_enabled = true
 region_rect = Rect2(114, 18, 10, 8)
+
+[node name="CollectableComponent" parent="." index="1"]
+collectableStat = ExtResource("3_uyeu4")
 
 [node name="CollisionShape2D" parent="CollectableComponent" index="0"]
 shape = SubResource("CircleShape2D_8b1dy")

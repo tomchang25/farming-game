@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=18 format=3 uid="uid://c3no5cs7t5k2v"]
+[gd_resource type="TileSet" load_steps=25 format=3 uid="uid://c3no5cs7t5k2v"]
 
 [ext_resource type="Texture2D" uid="uid://cdp3tcqppd4ll" path="res://Asset/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="1_locgg"]
 [ext_resource type="Texture2D" uid="uid://c2agw35ijvx6k" path="res://Asset/Sprout Lands - Sprites - Basic pack/Tilesets/Grass.png" id="2_2f2kk"]
@@ -11,6 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://wjd2bhyvpb1v" path="res://Scene/Object/Destructible/Tree/BigTree.tscn" id="7_q66v4"]
 [ext_resource type="PackedScene" uid="uid://ny2e65ayuwgo" path="res://Scene/Object/Destructible/Rock/Rock.tscn" id="8_xf5uv"]
 [ext_resource type="Texture2D" uid="uid://d1uaji2l4gvm1" path="res://Asset/Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png" id="9_ya2cs"]
+[ext_resource type="PackedScene" uid="uid://g3c5ncb3xylh" path="res://Scene/Object/Collectable/Material/Egg.tscn" id="10_7b71x"]
+[ext_resource type="PackedScene" uid="uid://c57mo8kl3dq4q" path="res://Scene/Object/Collectable/Material/CornHarvest.tscn" id="10_j7sry"]
+[ext_resource type="PackedScene" uid="uid://n6dtynxnrwum" path="res://Scene/Object/Collectable/Material/Log.tscn" id="11_6xk2d"]
+[ext_resource type="PackedScene" uid="uid://ccoy1mp00ir47" path="res://Scene/Object/Collectable/Material/Stone.tscn" id="12_2755v"]
+[ext_resource type="PackedScene" uid="uid://dqj7nju0fefxn" path="res://Scene/Object/Collectable/Material/Milk.tscn" id="13_uk2ai"]
+[ext_resource type="PackedScene" uid="uid://bsnrlftgssnoy" path="res://Scene/Object/Collectable/Material/TomatoHarvest.tscn" id="15_5h4v6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2f2kk"]
 texture = ExtResource("1_locgg")
@@ -423,6 +429,15 @@ texture = ExtResource("9_ya2cs")
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, 4, -8, 4, -8, -8, 4, -8)
 3:3/0/terrains_peering_bit/left_side = 2
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_j7sry"]
+resource_name = "Collectable"
+scenes/10/scene = ExtResource("10_j7sry")
+scenes/11/scene = ExtResource("10_7b71x")
+scenes/12/scene = ExtResource("11_6xk2d")
+scenes/13/scene = ExtResource("13_uk2ai")
+scenes/14/scene = ExtResource("12_2755v")
+scenes/15/scene = ExtResource("15_5h4v6")
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_emlel"]
 texture = ExtResource("3_3iii0")
 0:0/0 = 0
@@ -815,3 +830,4 @@ sources/5 = SubResource("TileSetAtlasSource_emlel")
 sources/6 = SubResource("TileSetAtlasSource_oauc2")
 sources/2 = SubResource("TileSetScenesCollectionSource_2ng5j")
 sources/3 = SubResource("TileSetAtlasSource_h2tip")
+sources/4 = SubResource("TileSetScenesCollectionSource_j7sry")

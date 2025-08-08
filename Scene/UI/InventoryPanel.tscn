@@ -1,0 +1,177 @@
+[gd_scene load_steps=15 format=3 uid="uid://b1wol27sth73j"]
+
+[ext_resource type="Theme" uid="uid://bfa4utwuhlxue" path="res://Resource/Theme/GameUITheme.tres" id="1_pm604"]
+[ext_resource type="Texture2D" uid="uid://ce4snvjafx40d" path="res://Asset/Sprout Lands - Sprites - Basic pack/Objects/Basic_tools_and_meterials.png" id="2_1hlt7"]
+[ext_resource type="Script" uid="uid://dquje2wx8s7mw" path="res://Script/Scene/UI/InventoryPanel.cs" id="2_kjja6"]
+[ext_resource type="Texture2D" uid="uid://tl1gvdek1vgc" path="res://Asset/Sprout Lands - Sprites - Basic pack/Objects/Basic_Plants.png" id="3_fmpix"]
+[ext_resource type="Texture2D" uid="uid://c0wj8uejvp1fg" path="res://Asset/Sprout Lands - Sprites - Basic pack/Objects/Egg_item.png" id="4_0vr0v"]
+[ext_resource type="Texture2D" uid="uid://r17nrbc704oi" path="res://Asset/Sprout Lands - Sprites - Basic pack/Objects/Simple_Milk_and_grass_item.png" id="5_0vr0v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkpkk"]
+atlas = ExtResource("2_1hlt7")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kjja6"]
+load_path = "res://.godot/imported/Basic_tools_and_meterials.png-2e7b2fee70155fce5e15a532b6dd9384.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp6lc"]
+atlas = SubResource("CompressedTexture2D_kjja6")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy6pw"]
+atlas = ExtResource("3_fmpix")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7nw3k"]
+load_path = "res://.godot/imported/Basic_Plants.png-9f3fd3e24a104c8e1e1b25b1989a1e37.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbi77"]
+atlas = SubResource("CompressedTexture2D_7nw3k")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6fnf"]
+atlas = ExtResource("4_0vr0v")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjja6"]
+atlas = ExtResource("5_0vr0v")
+region = Rect2(32, 0, 16, 16)
+
+[node name="InventoryPanel" type="PanelContainer"]
+offset_right = 48.0
+offset_bottom = 234.0
+theme = ExtResource("1_pm604")
+theme_type_variation = &"DarkWoodPanel"
+script = ExtResource("2_kjja6")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Log" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"InventoryItemPanel"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Log"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_fkpkk")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Log"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_type_variation = &"InventoryLabel"
+text = "0"
+
+[node name="Stone" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"InventoryItemPanel"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Stone"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_sp6lc")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Stone"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_type_variation = &"InventoryLabel"
+text = "0"
+
+[node name="CornHarvest" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"InventoryItemPanel"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/CornHarvest"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_xy6pw")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/CornHarvest"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_type_variation = &"InventoryLabel"
+text = "0"
+
+[node name="TomatoHarvest" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"InventoryItemPanel"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/TomatoHarvest"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_tbi77")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TomatoHarvest"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_type_variation = &"InventoryLabel"
+text = "0"
+
+[node name="Egg" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"InventoryItemPanel"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Egg"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_f6fnf")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Egg"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_type_variation = &"InventoryLabel"
+text = "0"
+
+[node name="Milk" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(26, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"InventoryItemPanel"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Milk"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_kjja6")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Milk"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_type_variation = &"InventoryLabel"
+text = "0"

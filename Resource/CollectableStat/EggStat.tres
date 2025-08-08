@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CollectableStat" load_steps=2 format=3 uid="uid://cyc7pqg1cm4yv"]
+
+[ext_resource type="Script" uid="uid://byfmiie8sbg13" path="res://Script/Resource/CollectableStat.cs" id="1_w3eje"]
+
+[resource]
+script = ExtResource("1_w3eje")
+ID = &"Egg"
+metadata/_custom_type_script = "uid://byfmiie8sbg13"

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CollectableStat" load_steps=2 format=3 uid="uid://bctmm0c7rxp8p"]
+
+[ext_resource type="Script" uid="uid://byfmiie8sbg13" path="res://Script/Resource/CollectableStat.cs" id="1_iwddm"]
+
+[resource]
+script = ExtResource("1_iwddm")
+ID = &"TomatoHarvest"
+metadata/_custom_type_script = "uid://byfmiie8sbg13"

@@ -1,5 +1,7 @@
 using Godot;
+using Godot.Collections;
 using System;
+using System.Collections.Generic;
 
 public partial class Player : CharacterBody2D
 {
@@ -8,13 +10,14 @@ public partial class Player : CharacterBody2D
     [Export]
     public DataType.ToolType CurrentTool { get; set; }
     public StringName CurrentAnimation => this.animationStateMachinePlayback.GetCurrentNode();
+    public Dictionary Inventory { get; set; } = [];
+
+
+
 
     private AnimationTree animationTree;
     private AnimationNodeStateMachinePlayback animationStateMachinePlayback;
-
     private Vector2 playerDirection = Vector2.Down;
-
-
     private float playerSpeed;
     private const float PLAYER_WALK_SPEED = 100;
     private const float PLAYER_RUN_SPEED = 200;
@@ -33,6 +36,7 @@ public partial class Player : CharacterBody2D
         SignalManager.Instance.Connect("ToolSelected", new Callable(this, nameof(OnToolSelected)));
         SignalManager.Instance.Connect("ToolDeselected", new Callable(this, nameof(OnToolDeselected)));
     }
+
 
     public override void _Process(double delta)
     {
@@ -106,6 +110,21 @@ public partial class Player : CharacterBody2D
             default:
                 break;
         }
+    }
+
+    public bool AddInventory(CollectableStat collectableStat)
+    {
+        if (this.Inventory.ContainsKey(collectableStat.ID))
+        {
+            this.Inventory[collectableStat.ID] = (int)this.Inventory[collectableStat.ID] + 1;
+        }
+        else
+        {
+            this.Inventory.Add(collectableStat.ID, 1);
+        }
+        GD.Print(this.Inventory);
+        SignalManager.Instance.EmitSignal("InventoryChanged", this.Inventory);
+        return true;
     }
 
 
